@@ -1,7 +1,8 @@
 import { WebSocketServer, WebSocket } from "ws";
 
+const PORT = Number(process.env.PORT) || 10000;
 
-const wss = new WebSocketServer({ port: 8080 });
+const wss = new WebSocketServer({ port: PORT });
 const rooms = new Map(); //<string, WebSocket>
 const messages = new Map<string, Message[]>(); // key is room id and value is message object
 const clients = new Map<WebSocket, string>();// key is socket and vsalue is senderId
